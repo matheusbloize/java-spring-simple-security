@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.matheusbloize.simple_security_food_order_system.dtos.OrderDto;
+import com.matheusbloize.simple_security_food_order_system.enums.OrderStatus;
 import com.matheusbloize.simple_security_food_order_system.models.Order;
 import com.matheusbloize.simple_security_food_order_system.models.OrderProduct;
 import com.matheusbloize.simple_security_food_order_system.models.Product;
@@ -80,7 +81,7 @@ public class OrderController {
             orderProducts.add(actualOrderProduct);
         }
         order.setTotalPrice(totalPrice);
-        // order.setStatus(OrderStatus.CREATED);
+        order.setStatus(orderDto.status() != null ? orderDto.status() : OrderStatus.CREATED);
 
         orderService.save(order);
 
