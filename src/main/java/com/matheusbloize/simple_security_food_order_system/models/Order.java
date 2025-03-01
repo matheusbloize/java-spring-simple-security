@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.matheusbloize.simple_security_food_order_system.enums.OrderStatus;
 
 import jakarta.persistence.Column;
@@ -33,6 +34,7 @@ public class Order implements Serializable {
     @Column(nullable = false)
     private OrderStatus status;
 
+    @JsonIgnoreProperties({ "password" })
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
@@ -59,6 +61,14 @@ public class Order implements Serializable {
 
     public void setStatus(OrderStatus status) {
         this.status = status;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
 }
