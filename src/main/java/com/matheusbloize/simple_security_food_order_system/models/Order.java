@@ -34,7 +34,7 @@ public class Order implements Serializable {
     @Column(nullable = false)
     private OrderStatus status;
 
-    @JsonIgnoreProperties({ "password" })
+    @JsonIgnoreProperties({ "password", "enabled", "accountNonExpired", "credentialsNonExpired", "accountNonLocked", "username" })
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
