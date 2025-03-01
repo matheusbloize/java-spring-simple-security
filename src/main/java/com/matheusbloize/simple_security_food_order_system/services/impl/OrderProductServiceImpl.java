@@ -26,6 +26,11 @@ public class OrderProductServiceImpl implements OrderProductService {
     }
 
     @Override
+    public List<OrderProduct> listAllWithOrderId(UUID orderId) {
+        return orderProductRepository.findByOrderId(orderId);
+    }
+
+    @Override
     public Optional<OrderProduct> findById(UUID orderProductId) {
         return orderProductRepository.findById(orderProductId);
     }

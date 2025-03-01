@@ -10,6 +10,8 @@ public interface OrderProductService {
 
     List<OrderProduct> listAll();
 
+    List<OrderProduct> listAllWithOrderId(UUID orderId);
+
     Optional<OrderProduct> findById(UUID orderProduOrderProductId);
 
     OrderProduct save(OrderProduct orderProduOrderProduct);
