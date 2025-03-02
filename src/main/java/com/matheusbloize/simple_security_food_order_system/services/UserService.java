@@ -12,6 +12,8 @@ public interface UserService {
 
     Optional<User> findById(UUID userId);
 
+    Optional<User> findByName(String name);
+
     User save(User user);
 
     void delete(User user);
